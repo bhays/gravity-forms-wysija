@@ -55,7 +55,9 @@ class GFWysija {
 			//self::flush_version_info();
         }
 
-        if(!self::is_gravityforms_supported()){
+        add_action('after_plugin_row_' . self::$path, array('GFWysija', 'plugin_row') );
+
+        if(!self::is_gravityforms_supported() || !self::is_wysija_installed() ){
            return;
         }
 
@@ -984,6 +986,26 @@ class GFWysija {
 		// Should be done now
     }
 
+	public static function plugin_row()
+	{
+		if(!self::is_gravityforms_supported() || !self::is_wysija_installed() )
+		{
+			$message = sprintf(__("%sGravity Forms%s 1.5 is required. Activate it now or %spurchase it today!%s"), "<a href='http://benjaminhays.com/gravityforms'>", "</a>", "<a href='http://benjaminhays.com/gravityforms'>", "</a>");
+			$message .= '<br/>'.sprintf(__("Wysija Newsletters plugin is required for this to work. %sDownload it now.%s"), '<a href="http://wordpress.org/extend/plugins/wysija-newsletters/">','</a>');
+			self::display_plugin_message($message, true);
+		}
+    }
+
+	public static function display_plugin_message($message, $is_error = false)
+	{
+		$style = '';
+		if($is_error)
+		{
+			$style = 'style="background-color: #ffebe8;"';
+		}
+		echo '</tr><tr class="plugin-update-tr"><td colspan="5" class="plugin-update"><div class="update-message" ' . $style . '>' . $message . '</div></td>';
+	}
+
     public static function uninstall(){
 
         //loading data lib
@@ -1047,6 +1069,10 @@ class GFWysija {
         else{
             return false;
         }
+    }
+
+    private static function is_wysija_installed(){
+        return class_exists("WYSIJA");
     }
 
     protected static function has_access($required_permission){
