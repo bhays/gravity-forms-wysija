@@ -285,7 +285,21 @@ class GFWysija {
                                             </span>
                                         </div>
                                     </td>
-                                    <td class="column-date"><?php echo $setting["meta"]["lists"] ?></td>
+                                    <td class="column-date">
+                                    <?php 
+                                    	$str = '';
+                                    	$lists = self::get_wysija_lists();
+                                    	foreach( $lists as $l )
+                                    	{
+	                                    	if( in_array($l['list_id'], $setting['meta']['lists']) )
+	                                    	{
+		                                    	$str .= $l['name'].", ";
+	                                    	}
+                                    	}
+                                    	echo rtrim($str, ', ');
+                                    ?>
+                                    
+                                    </td>
                                 </tr>
                                 <?php
                             }
