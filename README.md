@@ -1,7 +1,7 @@
 Gravity Forms Wysija Add-on
 ===========================
 
-Version 1.0
+Version 1.1
 
 WordPress plugin to create Wysija Newsletter subscribers from Gravity Form entires.
 
@@ -10,7 +10,7 @@ WordPress plugin to create Wysija Newsletter subscribers from Gravity Form entir
 * WordPress 3.5
 * PHP 5.3
 * [Wisija Newsletters](http://wordpress.org/extend/plugins/wysija-newsletters/)
-* Gravity Forms 1.5 - [Get a license here](http://benjaminhays.com/gravityforms)
+* Gravity Forms 1.6.10 - [Get a license here](http://benjaminhays.com/gravityforms)
 
 ## Installation
 1. Install as a regular WordPress plugin
@@ -19,6 +19,9 @@ WordPress plugin to create Wysija Newsletter subscribers from Gravity Form entir
 4. Navigate to Forms->Wysija to setup feeds linking your forms and lists
 
 ## Changelog
+
+### 1.1
+* Change Gravity Forms required version
 
 ### 1.0 
 * Initial release

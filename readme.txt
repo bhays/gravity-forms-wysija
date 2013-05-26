@@ -4,7 +4,7 @@ Donate link:
 Tags: gravity forms, gravityforms, wysija, wysija newsletters,
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,8 @@ Create Wysija Newsletter subscribers from Gravity Form entires.
 == Description ==
 
 Create Wysija Newsletter subscribers from Gravity Form entires.
+
+Requires Gravity Forms version 1.6.10 or higher.
 
 == Installation ==
 
@@ -26,6 +28,9 @@ Create Wysija Newsletter subscribers from Gravity Form entires.
 == Screenshots ==
 
 == Changelog ==
+
+### 1.1
+* Change Gravity Forms required version
 
 ### 1.0
 * Initial release

@@ -3,7 +3,7 @@
 Plugin Name: Gravity Forms Wysija Add-on
 Plugin URI: https://github.com/bhays/gravity-forms-wysija
 Description: Integrates the Gravity Forms plugin with the Wysija plugin, creating a menage-a-plugin.
-Version: 1.0
+Version: 1.1
 Author: Ben Hays
 Author URI: http://benhays.com
 
@@ -33,8 +33,8 @@ class GFWysija {
     private static $path = "gravity-forms-wysija/gravity-forms-wysija.php";
     private static $url = "http://www.gravityforms.com";
     private static $slug = "gravity-forms-wysija";
-    private static $version = "1.0";
-    private static $min_gravityforms_version = "1.5";
+    private static $version = "1.1";
+    private static $min_gravityforms_version = "1.6.10";
     private static $supported_fields = array(
 	    				"checkbox", "radio", "select", "text", "website", "textarea", "email", 
 	    				"hidden", "number", "phone", "multiselect", "post_title",
@@ -1004,7 +1004,7 @@ class GFWysija {
 	{
 		if(!self::is_gravityforms_supported() || !self::is_wysija_installed() )
 		{
-			$message = sprintf(__("%sGravity Forms%s 1.5 is required. Activate it now or %spurchase it today!%s"), "<a href='http://benjaminhays.com/gravityforms'>", "</a>", "<a href='http://benjaminhays.com/gravityforms'>", "</a>");
+			$message = sprintf(__("%sGravity Forms%s 1.6.10 is required. Activate it now or %spurchase it today!%s"), "<a href='http://benjaminhays.com/gravityforms'>", "</a>", "<a href='http://benjaminhays.com/gravityforms'>", "</a>");
 			$message .= '<br/>'.sprintf(__("Wysija Newsletters plugin is required for this to work. %sDownload it now.%s"), '<a href="http://wordpress.org/extend/plugins/wysija-newsletters/">','</a>');
 			self::display_plugin_message($message, true);
 		}
