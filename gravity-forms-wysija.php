@@ -3,7 +3,7 @@
 Plugin Name: Gravity Forms Wysija Add-on
 Plugin URI: https://github.com/bhays/gravity-forms-wysija
 Description: Integrates the Gravity Forms plugin with the Wysija plugin, creating a menage-a-plugin.
-Version: 1.1
+Version: 1.2
 Author: Ben Hays
 Author URI: http://benhays.com
 Text Domain: gravity-forms-wysija
@@ -35,10 +35,10 @@ class GFWysija {
     private static $path = "gravity-forms-wysija/gravity-forms-wysija.php";
     private static $url = "http://www.gravityforms.com";
     private static $slug = "gravity-forms-wysija";
-    private static $version = "1.1";
+    private static $version = "1.2";
     private static $min_gravityforms_version = "1.6.10";
     private static $supported_fields = array(
-	    				"checkbox", "radio", "select", "text", "website", "textarea", "email", 
+	    				"checkbox", "radio", "select", "text", "website", "textarea", "email",
 	    				"hidden", "number", "phone", "multiselect", "post_title",
 	                    "post_tags", "post_custom_field", "post_content", "post_excerpt"
 					);
@@ -221,7 +221,7 @@ class GFWysija {
 
         ?>
         <div class="wrap">
-            
+
             <h2><?php _e("Wysija Newsletter Feeds", "gravity-forms-wysija"); ?>
             <a class="add-new-h2" href="admin.php?page=gf_wysija&view=edit&id=0"><?php _e("Add New", "gravity-forms-wysija") ?></a>
             </h2>
@@ -288,7 +288,7 @@ class GFWysija {
                                         </div>
                                     </td>
                                     <td class="column-date">
-                                    <?php 
+                                    <?php
                                     	$str = '';
                                     	$lists = self::get_wysija_lists();
                                     	foreach( $lists as $l )
@@ -300,7 +300,7 @@ class GFWysija {
                                     	}
                                     	echo rtrim($str, ', ');
                                     ?>
-                                    
+
                                     </td>
                                 </tr>
                                 <?php
@@ -387,7 +387,7 @@ class GFWysija {
 	        'is_active' => true,
         );
         $config = empty($id) ? $default : GFWysijaData::get_feed($id);
-        
+
         //self::log_debug("Feed is set to: ".print_r($config, true));
 
 		// Get details from survey if we have one
@@ -414,14 +414,14 @@ class GFWysija {
 			foreach($details as $k=>$v){
 				$field_name = "wysija_map_field_".$k;
 				$mapped_field = stripslashes($_POST[$field_name]);
-				
+
 				if(!empty($mapped_field)){
 					$field_map[$k] = $mapped_field;
 				}
 				else{
 					unset($field_map[$k]);
 					if( isset($v['required']) ){
-						$is_valid = false;                 
+						$is_valid = false;
 					}
 				}
             }
@@ -494,13 +494,13 @@ class GFWysija {
 	            <div class="margin_vertical_10">
 	                <label for="gf_wysija_list" class="left_header"><?php _e("Wysija Lists", "gravity-forms-wysija"); ?> <?php gform_tooltip("wysija_contact_list") ?></label>
 	                <?php
-	
+
 	                //global wysija settings
 	                $settings = get_option("gf_wysija_settings");
-	
+
 	                //getting all Wysija Newsletters
 	                $lists = self::get_wysija_lists();
-	             
+
 	                if (!$lists):
 	                    echo __("Could not load Wysija lists.", "gravity-forms-wysija");
 	                    self::log_debug("Could not load Wysija lists.");
@@ -757,7 +757,7 @@ class GFWysija {
 
             function IsConditionalLogicField(field){
 			    inputType = field.inputType ? field.inputType : field.type;
-			    var supported_fields = ["checkbox", "radio", "select", "text", "website", "textarea", 
+			    var supported_fields = ["checkbox", "radio", "select", "text", "website", "textarea",
 			    "email", "hidden", "number", "phone", "multiselect", "post_title",
 			                            "post_tags", "post_custom_field", "post_content", "post_excerpt"];
 
@@ -813,35 +813,35 @@ class GFWysija {
 
         //getting field map UI
         $field_map = self::get_field_mapping($config, $form_id, $details);
-        
+
         // Escape quotes and strip extra whitespace and line breaks
         $field_map = str_replace("'","\'",$field_map);
 		//$field_map = preg_replace('/[ \t]+/', ' ', preg_replace('/\s*$^\s*/m', "\n", $field_map));
-        
+
 		//self::log_debug("Field map is set to: " . $field_map);
-        
+
         //getting list of selection fields to be used by the optin
         $form_meta = RGFormsModel::get_form_meta($form_id);
         $selection_fields = GFCommon::get_selection_fields($form_meta, rgars($config, "meta/optin_field_id"));
         $group_condition = array();
         $group_names = array();
         $grouping = '';
-        
+
         //fields meta
         $form = RGFormsModel::get_form_meta($form_id);
         die("EndSelectForm('".$field_map."', ".GFCommon::json_encode($form).", '" . str_replace("'", "\'", $grouping) . "', " . json_encode($group_names) . " );");
     }
 
     private static function get_field_mapping($config, $form_id, $details){
-	    	    
+
         //getting list of all fields for the selected form
         $form_fields = self::get_form_fields($form_id);
 
         $str = "<table cellpadding='0' cellspacing='0'><tr><td class='wysija_col_heading'>" . __("Wysija Fields", "gravity-forms-wysija") . "</td><td class='wysija_col_heading'>" . __("Form Fields", "gravity-forms-wysija") . "</td></tr>";
-        
+
         if(!isset($config["meta"]))
             $config["meta"] = array("field_map" => "", 'list_id'=>'');
-		
+
 		foreach( $details as $k=>$v )
 		{
 			$selected_field = rgar($config["meta"]["field_map"], $k);
@@ -849,7 +849,7 @@ class GFWysija {
 			$error_class = isset($v['required']) && empty($selected_field) && !empty($_POST["gf_wysija_submit"]) ? " feeds_validation_error" : "";
 			$str .= "<tr class='$error_class'><td class='wysija_field_cell'>".$v['name']." $required</td><td class='wysija_field_cell'>".self::get_mapped_field_list($k, $selected_field, $form_fields)."</td></tr>";
 		}
-		
+
         $str .= "</table>";
 
         return $str;
@@ -964,10 +964,10 @@ class GFWysija {
 
         return true;
     }
-    
+
     // Magic goes here
     public static function export_feed($entry, $form, $feed){
-	    
+
 		$double_optin = $feed["meta"]["double_optin"] ? true : false;
         $send_welcome = $feed["meta"]["welcome_email"] ? true : false;
         $email_field_id = $feed["meta"]["field_map"]["email"];
@@ -976,14 +976,14 @@ class GFWysija {
 		$params = array(
 			'lists' => $feed['meta']['lists'],
 		);
-        
+
         foreach( $feed['meta']['field_map'] as $k => $v ){
     		$field = RGFormsModel::get_field($form, $v);
 			$params[$k] = apply_filters("gform_wysija_field_value", rgar($entry, $v), $form['id'], $v, $entry);
         }
-        
+
         //self::log_debug('Params are: '.print_r($params, true));
-        
+
         // Send info to Wysija
 		$data = array(
 			'user'      => array(
@@ -995,10 +995,10 @@ class GFWysija {
 				'list_ids' => $params['lists'],
 			)
 		);
-		
+
 		$create_user = &WYSIJA::get('user','helper');
 		$create_user->addSubscriber($data);
-		
+
 		// Should be done now
     }
 
@@ -1061,7 +1061,7 @@ class GFWysija {
         return $is_optin;
 
     }
-    
+
     private static function get_wysija_details()
     {
 		$ret = array(
@@ -1072,7 +1072,7 @@ class GFWysija {
 
 		return $ret;
     }
-    
+
     private static function is_gravityforms_installed(){
         return class_exists("RGForms");
     }
@@ -1099,15 +1099,15 @@ class GFWysija {
         else
             return false;
     }
-	
-	// Clean strings from Wysija, we don't need any HTML or line breaks 
+
+	// Clean strings from Wysija, we don't need any HTML or line breaks
     protected function ws_clean($string){
 	    $chars = array("
 ", "\n", "\r", "chr(13)",  "\t", "\0", "\x0B");
 	    $string = str_replace($chars, '', trim(strip_tags($string)));
 	    return $string;
     }
-    
+
     //Returns the url of the plugin's root folder
     protected function get_base_url(){
         return plugins_url(null, __FILE__);

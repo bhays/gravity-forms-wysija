@@ -1,10 +1,11 @@
 Gravity Forms Wysija Add-on
 ===========================
 
-Version 1.1
+Version 1.2
 
 WordPress plugin to create Wysija Newsletter subscribers from Gravity Form entires.
 
+Thanks to [Dave at Deckerweb](http://deckerweb.de) for i18n enhancements and German translation
 
 ## Requirements
 * WordPress 3.5
@@ -20,10 +21,13 @@ WordPress plugin to create Wysija Newsletter subscribers from Gravity Form entir
 
 ## Changelog
 
+### 1.2
+* i18n enhancements, added German translations from Deckerweb
+
 ### 1.1
 * Change Gravity Forms required version
 
-### 1.0 
+### 1.0
 * Initial release
 
 ## License
