@@ -6,6 +6,8 @@ Description: Integrates the Gravity Forms plugin with the Wysija plugin, creatin
 Version: 1.1
 Author: Ben Hays
 Author URI: http://benhays.com
+Text Domain: gravity-forms-wysija
+Domain Path: /languages/
 
 ------------------------------------------------------------------------
 Copyright 2013 Ben Hays
@@ -49,7 +51,7 @@ class GFWysija {
 		if(basename($_SERVER['PHP_SELF']) == "plugins.php") {
 
             //loading translations
-            load_plugin_textdomain('gravity-forms-wysija', FALSE, '/gravity-forms-wysija/languages' );
+            load_plugin_textdomain( 'gravity-forms-wysija', FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 			//force new remote request for version info on the plugin page
 			//self::flush_version_info();
@@ -63,7 +65,7 @@ class GFWysija {
 
         if(is_admin()){
             //loading translations
-            load_plugin_textdomain('gravity-forms-wysija', FALSE, '/gravity-forms-wysija/languages' );
+            load_plugin_textdomain( 'gravity-forms-wysija', FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
             add_filter("transient_update_plugins", array('GFWysija', 'check_update'));
             add_filter("site_transient_update_plugins", array('GFWysija', 'check_update'));
@@ -541,7 +543,7 @@ class GFWysija {
                                             <div id="wysija_optin_value_container" name="wysija_optin_value_container" style="display:inline;"></div>
                                         </div>
                                         <div id="wysija_optin_condition_message" style="display:none">
-                                            <?php _e("To create an Opt-In condition, your form must have a field supported by conditional logic.", "gravityform") ?>
+                                            <?php _e( 'To create an Opt-In condition, your form must have a field supported by conditional logic.', 'gravity-forms-wysija' ) ?>
                                         </div>
                                     </div>
                                 </td>
@@ -717,7 +719,7 @@ class GFWysija {
 				{
 					selectedValue = selectedValue ? selectedValue.replace(/'/g, "&#039;") : "";
 					//create a text field for fields that don't have choices (i.e text, textarea, number, email, etc...)
-					str += "<input type='text' placeholder='<?php _e("Enter value", "gravityforms"); ?>' id='" + inputName + "' name='" + inputName +"' value='" + selectedValue.replace(/'/g, "&#039;") + "'>";
+					str += "<input type='text' placeholder='<?php _e( "Enter value", "gravity-forms-wysija" ); ?>' id='" + inputName + "' name='" + inputName +"' value='" + selectedValue.replace(/'/g, "&#039;") + "'>";
 				}
 
                 return str;
@@ -1002,11 +1004,11 @@ class GFWysija {
 
 	public static function plugin_row()
 	{
-		if(!self::is_gravityforms_supported() || !self::is_wysija_installed() )
+		if ( ! self::is_gravityforms_supported() || ! self::is_wysija_installed() )
 		{
-			$message = sprintf(__("%sGravity Forms%s 1.6.10 is required. Activate it now or %spurchase it today!%s"), "<a href='http://benjaminhays.com/gravityforms'>", "</a>", "<a href='http://benjaminhays.com/gravityforms'>", "</a>");
-			$message .= '<br/>'.sprintf(__("Wysija Newsletters plugin is required for this to work. %sDownload it now.%s"), '<a href="http://wordpress.org/extend/plugins/wysija-newsletters/">','</a>');
-			self::display_plugin_message($message, true);
+			$message = sprintf( __( '%sGravity Forms%s 1.6.10 is required. Activate it now or %spurchase it today!%s', 'gravity-forms-wysija' ), '<a href="http://benjaminhays.com/gravityforms">', '</a>', '<a href="http://benjaminhays.com/gravityforms">', '</a>' );
+			$message .= '<br/>'.sprintf( __( 'Wysija Newsletters plugin is required for this to work. %sDownload it now.%s', 'gravity-forms-wysija' ), '<a href="http://wordpress.org/extend/plugins/wysija-newsletters/">', '</a>' );
+			self::display_plugin_message( $message, true );
 		}
     }
 
