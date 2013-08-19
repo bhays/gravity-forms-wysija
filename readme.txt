@@ -4,7 +4,7 @@ Donate link:
 Tags: gravity forms, gravityforms, wysija, wysija newsletters,
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,10 @@ Thanks to Dave at Deckerweb for i18n enhancements and German translation
 == Screenshots ==
 
 == Changelog ==
+
+### 1.3
+* jQuery fix for GF 1.7.7 tooltips
+* Cleaned up warnings
 
 ### 1.2
 * i18n enhancements, added German translations from Deckerweb

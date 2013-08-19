@@ -3,7 +3,7 @@
 Plugin Name: Gravity Forms Wysija Add-on
 Plugin URI: https://github.com/bhays/gravity-forms-wysija
 Description: Integrates the Gravity Forms plugin with the Wysija plugin, creating a menage-a-plugin.
-Version: 1.2
+Version: 1.3
 Author: Ben Hays
 Author URI: http://benhays.com
 Text Domain: gravity-forms-wysija
@@ -35,7 +35,7 @@ class GFWysija {
     private static $path = "gravity-forms-wysija/gravity-forms-wysija.php";
     private static $url = "http://www.gravityforms.com";
     private static $slug = "gravity-forms-wysija";
-    private static $version = "1.2";
+    private static $version = "1.3";
     private static $min_gravityforms_version = "1.6.10";
     private static $supported_fields = array(
 	    				"checkbox", "radio", "select", "text", "website", "textarea", "email",
@@ -506,7 +506,7 @@ class GFWysija {
 	                    self::log_debug("Could not load Wysija lists.");
 	                else:
 	                    foreach ($lists as $l):
-	                        $checked = in_array($l['list_id'], $config['meta']['lists']) ? "checked='checked'" : "";
+	                        $checked = (is_array($config['meta']['lists']) && in_array($l['list_id'], $config['meta']['lists'])) ? "checked='checked'" : "";
 	                        ?>
 	                        <label class="wysija_checkbox"><input type="checkbox" name="gf_wysija_lists[]" value="<?php echo $l['list_id'] ?>" <?php echo $checked ?>> <?php echo $l['name'] ?></label>
 	                        <?php
@@ -655,20 +655,33 @@ class GFWysija {
                     for(var i in groups)
                         SetGroupCondition(groups[i]["main"], groups[i]["sub"],"","");
 
-                    //initializing wysija group tooltip
-                    jQuery('.tooltip_wysija_groups').qtip({
-                         content: jQuery('.tooltip_wysija_groups').attr('tooltip'), // Use the tooltip attribute of the element for the content
-                         show: { delay: 500, solo: true },
-                         hide: { when: 'mouseout', fixed: true, delay: 200, effect: 'fade' },
-                         style: "gformsstyle",
-                         position: {
-                          corner: {
-                               target: "topRight",
-                               tooltip: "bottomLeft"
-                               }
-                          }
-                      });
+                    // Two tooltips now for GF 1.7.7 updates
+                    // qtip will be removed soon
+					if( jQuery.fn.tooltip )
+					{
+	                    jQuery( '.tooltip_wysija_groups' ).tooltip({
+	                        show: 500,
+	                        hide: 1000,
+	                        content: function () {
+	                            return jQuery(this).prop('title');
+	                        }
+	                    });
+					}
 
+					if( jQuery.fn.qtip ){
+	                    jQuery('.tooltip_wysija_groups').qtip({
+	                         content: jQuery('.tooltip_wysija_groups').attr('tooltip'), // Use the tooltip attribute of the element for the content
+	                         show: { delay: 500, solo: true },
+	                         hide: { when: 'mouseout', fixed: true, delay: 200, effect: 'fade' },
+	                         style: "gformsstyle",
+	                         position: {
+	                          corner: {
+	                               target: "topRight",
+	                               tooltip: "bottomLeft"
+	                               }
+	                          }
+	                      });
+					}
                     jQuery("#wysija_field_group").slideDown();
 
                 }
@@ -818,8 +831,6 @@ class GFWysija {
         $field_map = str_replace("'","\'",$field_map);
 		//$field_map = preg_replace('/[ \t]+/', ' ', preg_replace('/\s*$^\s*/m', "\n", $field_map));
 
-		//self::log_debug("Field map is set to: " . $field_map);
-
         //getting list of selection fields to be used by the optin
         $form_meta = RGFormsModel::get_form_meta($form_id);
         $selection_fields = GFCommon::get_selection_fields($form_meta, rgars($config, "meta/optin_field_id"));
@@ -829,7 +840,8 @@ class GFWysija {
 
         //fields meta
         $form = RGFormsModel::get_form_meta($form_id);
-        die("EndSelectForm('".$field_map."', ".GFCommon::json_encode($form).", '" . str_replace("'", "\'", $grouping) . "', " . json_encode($group_names) . " );");
+
+		die("EndSelectForm('".$field_map."', ".GFCommon::json_encode($form).", '" . str_replace("'", "\'", $grouping) . "', " . json_encode($group_names) . " );");
     }
 
     private static function get_field_mapping($config, $form_id, $details){
