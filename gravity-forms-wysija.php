@@ -3,7 +3,7 @@
 Plugin Name: Gravity Forms Wysija Add-on
 Plugin URI: https://github.com/bhays/gravity-forms-wysija
 Description: Integrates the Gravity Forms plugin with the Wysija plugin, creating a menage-a-plugin.
-Version: 1.3
+Version: 1.3.1
 Author: Ben Hays
 Author URI: http://benhays.com
 Text Domain: gravity-forms-wysija
@@ -133,6 +133,8 @@ class GFWysija {
 		}
 
 		update_option( 'gf_wysija_version', self::$version );
+
+		return $update_plugins_option;
     }
 
     private static function get_key(){
