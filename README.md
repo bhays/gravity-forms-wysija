@@ -1,9 +1,9 @@
 Gravity Forms Wysija Add-on
 ===========================
 
-Version 1.3.1
+Version 1.4
 
-WordPress plugin to create Wysija Newsletter subscribers from Gravity Form entires.
+WordPress plugin to create MailPoet Newsletter subscribers from Gravity Form entires.
 
 Thanks to [Dave at Deckerweb](http://deckerweb.de) for i18n enhancements and German translation
 
@@ -20,6 +20,9 @@ Thanks to [Dave at Deckerweb](http://deckerweb.de) for i18n enhancements and Ger
 4. Navigate to Forms->Wysija to setup feeds linking your forms and lists
 
 ## Changelog
+
+### 1.4
+* Rename Wysija to MailPoet
 
 ### 1.3.1
 * Fix for updating other plugins
