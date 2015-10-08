@@ -3,8 +3,8 @@ Contributors: benhays
 Donate link:
 Tags: gravity forms, gravityforms, wysija, wysija newsletters, mail poet,
 Requires at least: 3.3
-Tested up to: 3.9
-Stable tag: 1.4
+Tested up to: 4.3.1
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ Create Mail Poet Newsletter subscribers from Gravity Form entires.
 
 Requires Gravity Forms version 1.6.10 or higher.
 
-Thanks to Dave at Deckerweb for i18n enhancements and German translation
+Thanks to Dave at Deckerweb - http://deckerweb.de - for i18n enhancements and German translation
 
 == Installation ==
 
@@ -30,6 +30,9 @@ Thanks to Dave at Deckerweb for i18n enhancements and German translation
 == Screenshots ==
 
 == Changelog ==
+
+### 1.4.1
+* Fix static warnings
 
 ### 1.4
 * Rename Wysija to MailPoet

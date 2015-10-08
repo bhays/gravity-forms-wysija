@@ -3,7 +3,7 @@
 Plugin Name: Gravity Forms MailPoet Add-on
 Plugin URI: https://github.com/bhays/gravity-forms-wysija
 Description: Integrates the Gravity Forms plugin with the MailPoet Newsletters plugin, creating a menage-a-plugin.
-Version: 1.4
+Version: 1.4.1
 Author: Ben Hays
 Author URI: http://benhays.com
 Text Domain: gravity-forms-wysija
@@ -35,7 +35,7 @@ class GFWysija {
     private static $path = "gravity-forms-wysija/gravity-forms-wysija.php";
     private static $url = "http://www.gravityforms.com";
     private static $slug = "gravity-forms-wysija";
-    private static $version = "1.3";
+    private static $version = "1.4.1";
     private static $min_gravityforms_version = "1.6.10";
     private static $supported_fields = array(
 	    				"checkbox", "radio", "select", "text", "website", "textarea", "email",
@@ -790,7 +790,7 @@ class GFWysija {
 	{
 		$data = array('name','list_id');
 		$conditions = array('is_enabled'=>1);
-		$modelList = &WYSIJA::get('list','model');
+		$modelList = WYSIJA::get('list','model');
 
 		return $modelList->get($data, $conditions);
 	}
@@ -1128,7 +1128,7 @@ class GFWysija {
     }
 
     //Returns the physical path of the plugin's root folder
-    protected function get_base_path(){
+    protected static function get_base_path(){
         $folder = basename(dirname(__FILE__));
         return WP_PLUGIN_DIR . "/" . $folder;
     }
