@@ -159,14 +159,22 @@ class GFMailPoetAddOn extends GFFeedAddOn {
 	}
 
 	/**
-	 * Format the value to be displayed in the mytextbox column.
+	 * Format the value to be displayed in the mailpoetlists column.
 	 *
 	 * @param array $feed The feed being included in the feed list.
 	 *
 	 * @return string
 	 */
 	public function get_column_value_mailpoetlists( $feed ) {
-		return '<b>' . rgars( $feed, 'meta/mailpoetlists' ) . '</b>';
+		$feed_list = rgars($feed, 'meta/mailpoetlist');
+		$lists = $this->get_mailpoet_lists();
+		$list_names = array();
+		foreach( $lists as $l ){
+			if( array_key_exists($l['list_id'], $feed_list) && $feed_list[$l['list_id']] == 1 ) {
+				$list_names[] = $l['name'];
+			}
+		}
+		return implode(', ', $list_names);
 	}
 
 	public function get_mailpoet_lists() {
