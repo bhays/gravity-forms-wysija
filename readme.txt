@@ -3,8 +3,8 @@ Contributors: benhays
 Donate link:
 Tags: gravity forms, gravityforms, wysija, wysija newsletters, mail poet,
 Requires at least: 3.3
-Tested up to: 4.3.1
-Stable tag: 1.4.1
+Tested up to: 4.5.3
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Create Mail Poet Newsletter subscribers from Gravity Form entires.
 
 Create Mail Poet Newsletter subscribers from Gravity Form entires.
 
-Requires Gravity Forms version 1.6.10 or higher.
+Requires Gravity Forms version 1.9.16 or higher.
 
 Thanks to Dave at Deckerweb - http://deckerweb.de - for i18n enhancements and German translation
 
@@ -23,13 +23,17 @@ Thanks to Dave at Deckerweb - http://deckerweb.de - for i18n enhancements and Ge
 1. Install as a regular WordPress plugin
 2. Create a form with the appropriate fields via Gravity Forms
 3. Setup Mail Poet Newsletters with one or many lists
-4. Navigate to Forms->Mail Poet to setup feeds linking your forms and lists
+4. Navigate to a form then select MailPoet under Settings and setup your feeds
 
 == Frequently asked questions ==
 
 == Screenshots ==
 
 == Changelog ==
+
+### 2.0
+* Make use of the GFFeedAddOn class
+*
 
 ### 1.4.1
 * Fix static warnings

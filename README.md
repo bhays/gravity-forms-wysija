@@ -1,7 +1,7 @@
 Gravity Forms Wysija Add-on
 ===========================
 
-Version 1.4.1
+Version 2.0
 
 WordPress plugin to create MailPoet Newsletter subscribers from Gravity Form entires.
 
@@ -16,13 +16,13 @@ Thanks to [Dave at Deckerweb](http://deckerweb.de) for i18n enhancements and Ger
 ## Installation
 1. Install as a regular WordPress plugin
 2. Create a form with the appropriate fields via Gravity Forms
-3. Setup Wysija Newsletters with one or many lists
-4. Navigate to Forms->Wysija to setup feeds linking your forms and lists
+3. Setup Mail Poet Newsletters with one or many lists
+4. Navigate to a form then select MailPoet under Settings and setup your feeds
 
 ## Changelog
 
-### 1.4.1
-* Fix static warnings
+### 2.0
+* Make use of the GFFeedAddOn class * Please note this update will require you to re-create all your feeds
 
 ### 1.4
 * Rename Wysija to MailPoet
