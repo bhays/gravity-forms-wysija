@@ -40,6 +40,9 @@ class GFMailPoetAddOn extends GFFeedAddOn {
         }
 	}
 
+	/**
+	 * Add subscriber info to the desired lists when submission is complete.
+	 */
 	public function process_feed( $feed, $entry, $form ) {
 		if( !$this->is_mailpoet_installed() ){
 			return;
@@ -82,13 +85,6 @@ class GFMailPoetAddOn extends GFFeedAddOn {
 		);
 
 		$user_id = WYSIJA::get('user', 'helper')->addSubscriber($data);
-	}
-
-	/**
-	 * Creates a custom page for this add-on.
-	 */
-	public function plugin_page() {
-		echo 'This page appears in the Forms menu';
 	}
 
 	/**

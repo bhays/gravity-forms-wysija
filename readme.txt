@@ -33,7 +33,6 @@ Thanks to Dave at Deckerweb - http://deckerweb.de - for i18n enhancements and Ge
 
 ### 2.0
 * Make use of the GFFeedAddOn class
-*
 
 ### 1.4.1
 * Fix static warnings
@@ -58,3 +57,5 @@ Thanks to Dave at Deckerweb - http://deckerweb.de - for i18n enhancements and Ge
 * Initial release
 
 == Upgrade notice ==
+= 2.0 =
+This update requires that you create new feeds for your forms.
