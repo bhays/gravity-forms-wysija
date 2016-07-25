@@ -36,7 +36,7 @@ class GFMailPoetAddOn extends GFFeedAddOn {
 		if(basename($_SERVER['PHP_SELF']) == "plugins.php") {
 
             //loading translations
-            load_plugin_textdomain('mailpoetaddon', FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages');
+            load_plugin_textdomain('gravity-forms-wysija', FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages');
         }
 	}
 
@@ -97,33 +97,33 @@ class GFMailPoetAddOn extends GFFeedAddOn {
 
 		return array(
 			array(
-				'title'  => esc_html__( 'MailPoet Feed Settings', 'mailpoetaddon' ),
+				'title'  => esc_html__( 'MailPoet Feed Settings', 'gravity-forms-wysija' ),
 				'fields' => array(
 					array(
-						'label'   => esc_html__( 'Feed name', 'mailpoetaddon' ),
+						'label'   => esc_html__( 'Feed name', 'gravity-forms-wysija' ),
 						'type'    => 'text',
 						'name'    => 'feedname',
 						'class'   => '',
 					),
 					array(
 						'name'      => 'mappedfields',
-						'label'     => esc_html__( 'Map Fields', 'mailpoetaddon' ),
+						'label'     => esc_html__( 'Map Fields', 'gravity-forms-wysija' ),
 						'type'      => 'field_map',
-						'tooltip'   => esc_html__( 'Associate your MailPoet newsletter questions to the appropriate Gravity Form fields by selecting.', 'mailpoetaddon'),
+						'tooltip'   => esc_html__( 'Associate your MailPoet newsletter questions to the appropriate Gravity Form fields by selecting.', 'gravity-forms-wysija'),
 						'field_map' => array(
 							array(
 								'name'     => 'first_name',
-								'label'    => esc_html__( 'First Name', 'mailpoetaddon' ),
+								'label'    => esc_html__( 'First Name', 'gravity-forms-wysija' ),
 								'required' => 0,
 							),
 							array(
 								'name'       => 'last_name',
-								'label'      => esc_html__( 'Last Name', 'mailpoetaddon' ),
+								'label'      => esc_html__( 'Last Name', 'gravity-forms-wysija' ),
 								'required'   => 0,
 							),
 							array(
 								'name'       => 'email',
-								'label'      => esc_html__( 'Email', 'mailpoetaddon' ),
+								'label'      => esc_html__( 'Email', 'gravity-forms-wysija' ),
 								'required'   => 0,
 								'field_type' => array('email', 'hidden'),
 							),
@@ -132,10 +132,10 @@ class GFMailPoetAddOn extends GFFeedAddOn {
 					$lists,
 					array(
 						'name'           => 'condition',
-						'label'          => esc_html__( 'Condition', 'mailpoetaddon' ),
+						'label'          => esc_html__( 'Condition', 'gravity-forms-wysija' ),
 						'type'           => 'feed_condition',
-						'checkbox_label' => esc_html__( 'Enable Condition', 'mailpoetaddon' ),
-						'instructions'   => esc_html__( 'Process this feed if', 'mailpoetaddon' ),
+						'checkbox_label' => esc_html__( 'Enable Condition', 'gravity-forms-wysija' ),
+						'instructions'   => esc_html__( 'Process this feed if', 'gravity-forms-wysija' ),
 					),
 				),
 			),
@@ -149,8 +149,8 @@ class GFMailPoetAddOn extends GFFeedAddOn {
 	 */
 	public function feed_list_columns() {
 		return array(
-			'feedname'       => esc_html__( 'Name', 'mailpoetaddon' ),
-			'mailpoetlists'  => esc_html__( 'MailPoet Lists', 'mailpoetaddon' ),
+			'feedname'       => esc_html__( 'Name', 'gravity-forms-wysija' ),
+			'mailpoetlists'  => esc_html__( 'MailPoet Lists', 'gravity-forms-wysija' ),
 		);
 	}
 
@@ -186,14 +186,14 @@ class GFMailPoetAddOn extends GFFeedAddOn {
 
 		$list_array = array(
 			'name'    => 'mailpoetlists',
-			'label'   => esc_html__( 'MailPoet Lists', 'mailpoetaddon' ),
+			'label'   => esc_html__( 'MailPoet Lists', 'gravity-forms-wysija' ),
 			'type'    => 'checkbox',
-			'tooltip' => esc_html__( 'Select the MailPoet lists you would like to add your contacts to.', 'mailpoetaddon' ),
+			'tooltip' => esc_html__( 'Select the MailPoet lists you would like to add your contacts to.', 'gravity-forms-wysija' ),
 			'choices' => array(),
 		);
 		if( !$lists ) {
 			self::log_debug("Could not load MailPoet lists.");
-			$list_array['choices'][] = array('label' => esc_html__('Could not load MailPoet lists.', 'mailpoetaddon'));
+			$list_array['choices'][] = array('label' => esc_html__('Could not load MailPoet lists.', 'gravity-forms-wysija'));
 
 		} else {
 			foreach ($lists as $l){
