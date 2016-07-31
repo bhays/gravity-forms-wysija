@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Gravity Forms MailPoet Add-on\n"
-"POT-Creation-Date: 2016-07-31 10:49+0800\n"
-"PO-Revision-Date: 2016-07-31 10:49+0800\n"
+"POT-Creation-Date: 2016-07-31 11:24+0800\n"
+"PO-Revision-Date: 2016-07-31 11:24+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,61 +20,75 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: class-gfmailpoetaddon.php:100
+#: class-gfmailpoetaddon.php:53
+msgid "Where did my feeds go?"
+msgstr ""
+
+#: class-gfmailpoetaddon.php:54
+msgid ""
+"Your feeds for MailPoet can now be found under each form, under <strong>Form "
+"Settings -> MailPoet</strong>."
+msgstr ""
+
+#: class-gfmailpoetaddon.php:55
+msgid "Add your feeds now"
+msgstr ""
+
+#: class-gfmailpoetaddon.php:128
 msgid "MailPoet Feed Settings"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:103
+#: class-gfmailpoetaddon.php:131
 msgid "Feed name"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:110
+#: class-gfmailpoetaddon.php:138
 msgid "Map Fields"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:112
+#: class-gfmailpoetaddon.php:140
 msgid ""
 "Associate your MailPoet newsletter questions to the appropriate Gravity Form "
 "fields by selecting."
 msgstr ""
 
-#: class-gfmailpoetaddon.php:116
+#: class-gfmailpoetaddon.php:144
 msgid "First Name"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:121
+#: class-gfmailpoetaddon.php:149
 msgid "Last Name"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:126
+#: class-gfmailpoetaddon.php:154
 msgid "Email"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:135
+#: class-gfmailpoetaddon.php:163
 msgid "Condition"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:137
+#: class-gfmailpoetaddon.php:165
 msgid "Enable Condition"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:138
+#: class-gfmailpoetaddon.php:166
 msgid "Process this feed if"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:152
+#: class-gfmailpoetaddon.php:180
 msgid "Name"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:153 class-gfmailpoetaddon.php:189
+#: class-gfmailpoetaddon.php:181 class-gfmailpoetaddon.php:217
 msgid "MailPoet Lists"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:191
+#: class-gfmailpoetaddon.php:219
 msgid "Select the MailPoet lists you would like to add your contacts to."
 msgstr ""
 
-#: class-gfmailpoetaddon.php:196
+#: class-gfmailpoetaddon.php:224
 msgid "Could not load MailPoet lists."
 msgstr ""
 

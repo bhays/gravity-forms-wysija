@@ -33,11 +33,39 @@ class GFMailPoetAddOn extends GFFeedAddOn {
 		// Supports logging
 		add_filter('gform_logging_supported', array($this, 'set_logging_supported'));
 
-		if(basename($_SERVER['PHP_SELF']) == "plugins.php") {
-
+		if( basename($_SERVER['PHP_SELF']) == "plugins.php" ) {
             //loading translations
             load_plugin_textdomain('gravity-forms-wysija', FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages');
         }
+
+        // Hide plugin_page if already shown
+        if( get_option('gf_mailpoet_plugin_page') ){
+			add_filter('gform_addon_navigation', array($this, 'remove_plugin_page_menu'));
+		}
+	}
+
+	/**
+	 * Create a custom page to explain the upgrade process
+	 */
+	public function plugin_page() {
+		// Set option to only display plugin page once
+		update_option('gf_mailpoet_plugin_page', true);
+		echo '<h3>'.__('Where did my feeds go?', 'gravity-forms-wysija').'</h3>';
+		echo '<p>'.__('Your feeds for MailPoet can now be found under each form, under <strong>Form Settings -> MailPoet</strong>.', 'gravity-forms-wysija'). '</p>';
+		echo '<p><a class="button-primary" href="'.admin_url('?page=gf_edit_forms&view=settings&subview=gravity-forms-wysija').'">'.__('Add your feeds now', 'gravity-forms-wysija').'</a></p>';
+	}
+
+	/**
+	 * Remove plugin page from menu
+	 */
+	public function remove_plugin_page_menu($menu){
+		foreach( $menu as $k=>$v ){
+			if( $v['name'] == 'gravity-forms-wysija' ){
+				unset($menu[$k]);
+				return $menu;
+			}
+		}
+		return $menu;
 	}
 
 	/**

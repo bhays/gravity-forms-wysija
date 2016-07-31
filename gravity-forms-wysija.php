@@ -69,6 +69,5 @@ function gf_mailpoet_plugin_admin_notices() {
 
 register_deactivation_hook(__FILE__, 'gf_mailpoet_plugin_deactivation');
 function gf_mailpoet_plugin_deactivation() {
-	delete_option('gf_mailpoet_plugin_version');
 	delete_option('gf_mailpoet_plugin_deferred_admin_notices');
 }
