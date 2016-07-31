@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Gravity Forms MailPoet Add-on\n"
-"POT-Creation-Date: 2016-07-18 16:09+0800\n"
-"PO-Revision-Date: 2016-07-18 16:08+0800\n"
+"POT-Creation-Date: 2016-07-31 10:49+0800\n"
+"PO-Revision-Date: 2016-07-31 10:49+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,62 +20,71 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: class-gfmailpoetaddon.php:104
+#: class-gfmailpoetaddon.php:100
 msgid "MailPoet Feed Settings"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:107
+#: class-gfmailpoetaddon.php:103
 msgid "Feed name"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:114
+#: class-gfmailpoetaddon.php:110
 msgid "Map Fields"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:116
+#: class-gfmailpoetaddon.php:112
 msgid ""
 "Associate your MailPoet newsletter questions to the appropriate Gravity Form "
 "fields by selecting."
 msgstr ""
 
-#: class-gfmailpoetaddon.php:120
+#: class-gfmailpoetaddon.php:116
 msgid "First Name"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:125
+#: class-gfmailpoetaddon.php:121
 msgid "Last Name"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:130
+#: class-gfmailpoetaddon.php:126
 msgid "Email"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:139
+#: class-gfmailpoetaddon.php:135
 msgid "Condition"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:141
+#: class-gfmailpoetaddon.php:137
 msgid "Enable Condition"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:142
+#: class-gfmailpoetaddon.php:138
 msgid "Process this feed if"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:156
+#: class-gfmailpoetaddon.php:152
 msgid "Name"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:157 class-gfmailpoetaddon.php:185
+#: class-gfmailpoetaddon.php:153 class-gfmailpoetaddon.php:189
 msgid "MailPoet Lists"
 msgstr ""
 
-#: class-gfmailpoetaddon.php:187
+#: class-gfmailpoetaddon.php:191
 msgid "Select the MailPoet lists you would like to add your contacts to."
 msgstr ""
 
-#: class-gfmailpoetaddon.php:192
+#: class-gfmailpoetaddon.php:196
 msgid "Could not load MailPoet lists."
+msgstr ""
+
+#: gravity-forms-wysija.php:56
+msgid ""
+"<strong>Gravity Forms MailPoet Add-on notice</strong> <br/><br/"
+"><strong>Update all your MailPoet feeds</strong> after upgrading to version "
+"2.0.</br><br/> This add-on now uses the updated Gravity Forms feed settings, "
+"which allows you to set feeds individually for each form. Go to Form "
+"Settings -> MailPoet to create your feeds for a given form."
 msgstr ""
 
 #. Plugin Name of the plugin/theme

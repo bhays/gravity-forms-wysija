@@ -49,3 +49,26 @@ class GF_MailPoet_Startup {
 function gf_mailpoet_feed_addon() {
 	return GFMailPoetAddOn::get_instance();
 }
+
+register_activation_hook(__FILE__, 'gf_mailpoet_plugin_activation');
+function gf_mailpoet_plugin_activation() {
+	$notices= get_option('gf_mailpoet_plugin_deferred_admin_notices', array());
+	$notices[]= __("<strong>Gravity Forms MailPoet Add-on notice</strong> <br/><br/><strong>Update all your MailPoet feeds</strong> after upgrading to version 2.0.</br><br/> This add-on now uses the updated Gravity Forms feed settings, which allows you to set feeds individually for each form. Go to Form Settings -> MailPoet to create your feeds for a given form.", 'gravity-forms-wysija');
+	update_option('gf_mailpoet_plugin_deferred_admin_notices', $notices);
+}
+
+add_action('admin_notices', 'gf_mailpoet_plugin_admin_notices');
+function gf_mailpoet_plugin_admin_notices() {
+	if ($notices = get_option('gf_mailpoet_plugin_deferred_admin_notices')) {
+		foreach ($notices as $notice) {
+			echo "<div class='notice notice-warning is-dismissable'><p>$notice</p></div>";
+		}
+		delete_option('gf_mailpoet_plugin_deferred_admin_notices');
+	}
+}
+
+register_deactivation_hook(__FILE__, 'gf_mailpoet_plugin_deactivation');
+function gf_mailpoet_plugin_deactivation() {
+	delete_option('gf_mailpoet_plugin_version');
+	delete_option('gf_mailpoet_plugin_deferred_admin_notices');
+}
