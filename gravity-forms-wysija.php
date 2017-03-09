@@ -3,14 +3,14 @@
 Plugin Name: Gravity Forms MailPoet Add-on
 Plugin URI: https://github.com/bhays/gravity-forms-wysija
 Description: Integrates the Gravity Forms plugin with the MailPoet Newsletters plugin, creating a menage-a-plugin.
-Version: 2.0
+Version: 2.0.1
 Author: Ben Hays
 Author URI: http://benhays.com
 Text Domain: gravity-forms-wysija
 Domain Path: /languages/
 
 ------------------------------------------------------------------------
-Copyright 2016 Ben Hays
+Copyright 2017 Ben Hays
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
-define( 'GF_WYSIJA_ADDON_VERSION', '2.0' );
+define( 'GF_WYSIJA_ADDON_VERSION', '2.0.1' );
 
 add_action( 'gform_loaded', array( 'GF_MailPoet_Startup', 'load' ), 5 );
 

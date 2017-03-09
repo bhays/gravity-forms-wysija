@@ -3,7 +3,7 @@
 GFForms::include_feed_addon_framework();
 
 class GFMailPoetAddOn extends GFFeedAddOn {
-	protected $_version = GF_SIMPLE_FEED_ADDON_VERSION;
+	protected $_version = GF_WYSIJA_ADDON_VERSION;
 	protected $_min_gravityforms_version = '1.9.16';
 	protected $_slug = 'gravity-forms-wysija';
 	protected $_path = 'gravity-forms-wysija/gravity-forms-wysija.php';
